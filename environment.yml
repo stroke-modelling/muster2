@@ -1,0 +1,23 @@
+name: muster
+channels:
+  - defaults
+dependencies:
+  - joblib
+  - jupyter
+  - jupyterlab
+  - matplotlib
+  - numpy
+  - pandas
+  - pip
+  - pytest
+  - python=3.10
+  - scipy
+  - scikit-learn
+  - pip:
+    - geopandas
+    - contextily
+    - mapclassify
+    - simpy==4.0
+    - shap
+    - stroke-outcome
+    - xgboost
