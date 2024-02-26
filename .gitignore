@@ -2,6 +2,7 @@
 _build/
 #data/
 temp/
+.idea/
 
 # Ignore file types that may contain data or models
 *.p
