@@ -40,10 +40,14 @@ class Model(object):
         """
 
         # set up table and add results
-        self.full_results = self.geodata.copy(deep=True)
+        self.full_results = self.geodata.copy(deep=True)        
+
         self.add_drip_ship()
         self.add_mothership()
         self.add_msu()
+
+        self.full_results.set_index('LSOA', inplace=True)
+        self.save_results()
 
 
     def add_drip_ship(self):
@@ -304,3 +308,8 @@ class Model(object):
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_post_stroke']
         self.full_results['lvo_msu_mt_utility_shift'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_shift']
+        
+    def save_results(self):
+        """Save results to output folder"""
+
+        self.full_results.to_csv('./output/lsoa_results.csv')
