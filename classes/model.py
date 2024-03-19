@@ -147,6 +147,15 @@ class Model(object):
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_post_stroke']
         self.full_results['lvo_drip_ship_mt_utility_shift'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_shift']
+        # LVO IVT + MT
+        self.full_results['lvo_drip_ship_ivt_mt_mrs_0-2'] = self.full_results[
+            ['lvo_drip_ship_ivt_mrs_0-2', 'lvo_drip_ship_mt_mrs_0-2']].max(axis=1)
+        self.full_results['lvo_drip_ship_ivt_mt_mrs_shift'] = self.full_results[
+            ['lvo_drip_ship_ivt_mrs_shift', 'lvo_drip_ship_mt_mrs_shift']].min(axis=1)
+        self.full_results['lvo_drip_ship_ivt_mt_utility'] = self.full_results[
+            ['lvo_drip_ship_ivt_utility', 'lvo_drip_ship_mt_utility']].max(axis=1)
+        self.full_results['lvo_drip_ship_ivt_mt_utility_shift'] = self.full_results[
+            ['lvo_drip_ship_ivt_utility_shift', 'lvo_drip_ship_mt_utility_shift']].max(axis=1)
 
 
 
@@ -190,7 +199,7 @@ class Model(object):
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
         self.full_results['nlvo_mothership_ivt_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_post_stroke']
-        self.full_results['nlvo_mothership_ivt_utililityshift'] = \
+        self.full_results['nlvo_mothership_ivt_utilility_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_shift']
 
         # Add clinical benefit for LVO outcome (stroke type = 2)
@@ -225,7 +234,15 @@ class Model(object):
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_post_stroke']
         self.full_results['lvo_mothership_mt_utility_shift'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_shift']
-
+        # LVO IVT + MT
+        self.full_results['lvo_mothership_ivt_mt_mrs_0-2'] = self.full_results[
+            ['lvo_mothership_ivt_mrs_0-2', 'lvo_mothership_mt_mrs_0-2']].max(axis=1)
+        self.full_results['lvo_mothership_ivt_mt_mrs_shift'] = self.full_results[
+            ['lvo_mothership_ivt_mrs_shift', 'lvo_mothership_mt_mrs_shift']].min(axis=1)
+        self.full_results['lvo_mothership_ivt_mt_utility'] = self.full_results[
+            ['lvo_mothership_ivt_utility', 'lvo_mothership_mt_utility']].max(axis=1)
+        self.full_results['lvo_mothership_ivt_mt_utility_shift'] = self.full_results[
+            ['lvo_mothership_ivt_utility_shift', 'lvo_mothership_mt_utility_shift']].max(axis=1)
 
     def add_msu(self):
         """Add MSU times to IVT & MT, clinical benefit, and utilised time"""
@@ -278,7 +295,7 @@ class Model(object):
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
         self.full_results['nlvo_msu_ivt_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_post_stroke']
-        self.full_results['nlvo_msu_ivt_utililityshift'] = \
+        self.full_results['nlvo_msu_ivt_utilility_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_shift']
 
         # Add clinical benefit for LVO outcome (stroke type = 2)
@@ -312,6 +329,15 @@ class Model(object):
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_post_stroke']
         self.full_results['lvo_msu_mt_utility_shift'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_shift']
+        # LVO IVT + MT
+        self.full_results['lvo_msu_ivt_mt_mrs_0-2'] = self.full_results[
+            ['lvo_msu_ivt_mrs_0-2', 'lvo_msu_mt_mrs_0-2']].max(axis=1)
+        self.full_results['lvo_msu_ivt_mt_mrs_shift'] = self.full_results[
+            ['lvo_msu_ivt_mrs_shift', 'lvo_msu_mt_mrs_shift']].min(axis=1)
+        self.full_results['lvo_msu_ivt_mt_utility'] = self.full_results[
+            ['lvo_msu_ivt_utility', 'lvo_msu_mt_utility']].max(axis=1)
+        self.full_results['lvo_msu_ivt_mt_utility_shift'] = self.full_results[
+            ['lvo_msu_ivt_utility_shift', 'lvo_msu_mt_utility_shift']].max(axis=1)
         
     def save_results(self):
         """Save results to output folder"""
