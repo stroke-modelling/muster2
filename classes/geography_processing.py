@@ -94,7 +94,7 @@ class Geoprocessing(object):
         self.combined_data['nearest_ivt_unit'] = self.nearest_ivt_unit['unit']
         self.combined_data['nearest_ivt_time'] = self.nearest_ivt_unit['time']
         self.combined_data['nearest_mt_unit'] = self.nearest_mt_unit['unit']
-        self.combined_data['nearest_mt _time'] = self.nearest_mt_unit['time']
+        self.combined_data['nearest_mt_time'] = self.nearest_mt_unit['time']
         self.combined_data = self.combined_data.merge(
             self.transfer_mt_unit, how='left', left_on='nearest_ivt_unit', right_index=True)
         self.combined_data['nearest_msu_unit'] = self.nearest_msu_unit['unit']
