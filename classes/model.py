@@ -81,7 +81,7 @@ class Model(object):
         continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
-        self.full_results['nlvo_no_treatment_mrs0-2'] = \
+        self.full_results['nlvo_no_treatment_mrs_0-2'] = \
             continuous_outcome.mrs_dists_input.loc['pre_stroke_nlvo']['mRS<=2']
         self.full_results['nlvo_no_treatment_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_utility_not_treated']
@@ -90,13 +90,13 @@ class Model(object):
         continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
-        self.full_results['nlvo_drip_ship_ivt_mrs0-2'] = \
+        self.full_results['nlvo_drip_ship_ivt_mrs_0-2'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['nlvo_drip_ship_ivt_mrs_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
         self.full_results['nlvo_drip_ship_ivt_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_post_stroke']
-        self.full_results['nlvo_drip_ship_ivt_utililityshift'] = \
+        self.full_results['nlvo_drip_ship_ivt_utilility_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_shift']
 
         # Add clinical benefit for LVO outcome (stroke type = 2)
@@ -111,7 +111,7 @@ class Model(object):
         continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
-        self.full_results['nlvo_no_treatment_mrs0-2'] = \
+        self.full_results['nlvo_no_treatment_mrs_0-2'] = \
             continuous_outcome.mrs_dists_input.loc['pre_stroke_lvo']['mRS<=2']
         self.full_results['nlvo_no_treatment_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_utility_not_treated']
@@ -122,23 +122,23 @@ class Model(object):
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
         # LVO IVT
-        self.full_results['lvo_drip_ship_ivt_mrs0-2'] = \
+        self.full_results['lvo_drip_ship_ivt_mrs_0-2'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['lvo_drip_ship_ivt_mrs_shift'] = \
-            outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_shift']  
+            outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_shift'] 
         self.full_results['lvo_drip_ship_ivt_utility'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_utility_post_stroke']
         self.full_results['lvo_drip_ship_ivt_utility_shift'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_utility_shift']
         # LVO MT
-        self.full_results['lvo_drip_ship_mt_mrs0-2'] = \
+        self.full_results['lvo_drip_ship_mt_mrs_0-2'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['lvo_drip_ship_mt_mrs_shift'] = \
-            outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_shift']  
+            outcomes_by_stroke_type['lvo_mt_each_patient_mrs_shift']  
         self.full_results['lvo_drip_ship_mt_utility'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_post_stroke']
         self.full_results['lvo_drip_ship_mt_utility_shift'] = \
-            outcomes_by_stroke_type['lvo_ivt_each_patient_utility_shift']
+            outcomes_by_stroke_type['lvo_mt_each_patient_utility_shift']
 
 
 
@@ -176,7 +176,7 @@ class Model(object):
         continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
-        self.full_results['nlvo_mothership_ivt_mrs0-2'] = \
+        self.full_results['nlvo_mothership_ivt_mrs_0-2'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['nlvo_mothership_ivt_mrs_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
@@ -200,7 +200,7 @@ class Model(object):
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
         # LVO IVT
-        self.full_results['lvo_mothership_ivt_mrs0-2'] = \
+        self.full_results['lvo_mothership_ivt_mrs_0-2'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['lvo_mothership_ivt_mrs_shift'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_shift']  
@@ -209,14 +209,14 @@ class Model(object):
         self.full_results['lvo_mothership_ivt_utility_shift'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_utility_shift']
         # LVO MT
-        self.full_results['lvo_mothership_mt_mrs0-2'] = \
+        self.full_results['lvo_mothership_mt_mrs_0-2'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['lvo_mothership_mt_mrs_shift'] = \
-            outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_shift']  
+            outcomes_by_stroke_type['lvo_mt_each_patient_mrs_shift']  
         self.full_results['lvo_mothership_mt_utility'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_post_stroke']
         self.full_results['lvo_mothership_mt_utility_shift'] = \
-            outcomes_by_stroke_type['lvo_ivt_each_patient_utility_shift']
+            outcomes_by_stroke_type['lvo_mt_each_patient_utility_shift']
 
 
     def add_msu(self):
@@ -264,7 +264,7 @@ class Model(object):
         continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
-        self.full_results['nlvo_msu_ivt_mrs0-2'] = \
+        self.full_results['nlvo_msu_ivt_mrs_0-2'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['nlvo_msu_ivt_mrs_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
@@ -287,7 +287,7 @@ class Model(object):
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
         # LVO IVT
-        self.full_results['lvo_msu_ivt_mrs0-2'] = \
+        self.full_results['lvo_msu_ivt_mrs_0-2'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['lvo_msu_ivt_mrs_shift'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_shift']  
@@ -296,11 +296,11 @@ class Model(object):
         self.full_results['lvo_msu_ivt_utility_shift'] = \
             outcomes_by_stroke_type['lvo_ivt_each_patient_utility_shift']
         # LVO MT
-        self.full_results['lvo_msu_mt_mrs0-2'] = \
+        self.full_results['lvo_msu_mt_mrs_0-2'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_mrs_dist_post_stroke'][:,2]
         self.full_results['lvo_msu_mt_mrs_shift'] = \
-            outcomes_by_stroke_type['lvo_ivt_each_patient_mrs_shift']  
+            outcomes_by_stroke_type['lvo_mt_each_patient_mrs_shift']  
         self.full_results['lvo_msu_mt_utility'] = \
             outcomes_by_stroke_type['lvo_mt_each_patient_utility_post_stroke']
         self.full_results['lvo_msu_mt_utility_shift'] = \
-            outcomes_by_stroke_type['lvo_ivt_each_patient_utility_shift']
+            outcomes_by_stroke_type['lvo_mt_each_patient_utility_shift']
