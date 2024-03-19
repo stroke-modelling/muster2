@@ -82,7 +82,7 @@ class Model(object):
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
         self.full_results['nlvo_no_treatment_mrs0-2'] = \
-            outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
+            continuous_outcome.mrs_dists_input.loc['pre_stroke_nlvo']['mRS<=2']
         self.full_results['nlvo_no_treatment_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_utility_not_treated']
         # Outcome with treatment
@@ -112,7 +112,7 @@ class Model(object):
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
         self.full_results['nlvo_no_treatment_mrs0-2'] = \
-            outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_dist_post_stroke'][:,2]
+            continuous_outcome.mrs_dists_input.loc['pre_stroke_lvo']['mRS<=2']
         self.full_results['nlvo_no_treatment_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_utility_not_treated']
         # Outcome with treatment (IVT then IVT+MT)
