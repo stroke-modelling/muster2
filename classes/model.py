@@ -46,7 +46,11 @@ class Model(object):
         self.add_mothership()
         self.add_msu()
 
+        # Reindex on LSOA
         self.full_results.set_index('LSOA', inplace=True)
+        self.summary_results = self.full_results.describe().T
+
+
         self.save_results()
 
 
@@ -242,7 +246,7 @@ class Model(object):
             self.full_results['nearest_msu_time'] +
             self.scenario.process_msu_on_scene_thrombolysis +
             self.full_results['nearest_mt_time'] +
-            self.scenario.process_time_arrival_to_needle)
+            self.scenario.process_time_msu_arrival_to_puncture)
 
         self.full_results['msu_occupied_treatment'] = (
             self.scenario.process_msu_dispatch +
@@ -313,3 +317,4 @@ class Model(object):
         """Save results to output folder"""
 
         self.full_results.to_csv('./output/lsoa_results.csv')
+        self.summary_results.to_csv('./output/summary_results.csv')
