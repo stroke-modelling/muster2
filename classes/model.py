@@ -342,5 +342,5 @@ class Model(object):
     def save_results(self):
         """Save results to output folder"""
 
-        self.full_results.to_csv('./output/lsoa_results.csv')
-        self.summary_results.to_csv('./output/summary_results.csv')
+        self.full_results.to_csv(f'./output/lsoa_results_scen_{self.scenario.name}.csv')
+        self.summary_results.to_csv(f'./output/summary_results_scen_{self.scenario.name}.csv')

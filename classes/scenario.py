@@ -21,10 +21,11 @@ class Scenario(object):
         self.limit_to_england = True
 
         # Stroke types
-        # Proportions for 6 hour arrivals: https://samuel-book.github.io/samuel-1/descriptive_stats/10_using_nihss_10_for_lvo.html
+        # Proportions for 6 hour arrivals:
+        # https://samuel-book.github.io/samuel-1/descriptive_stats/10_using_nihss_10_for_lvo.html
         self.stroke_type_proportions = {
             'h': 13.6,
-            'nlvo' 60.9,
+            'nlvo': 60.9,
             'lvo': 25.5
         }
         # Mimics = proportion of all calls that are mimics
