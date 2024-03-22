@@ -17,7 +17,7 @@ class Scenario_runner(object):
         """constructor class"""
 
         self.scenarios = scenarios
-        self.results = dict()
+        self.results = pd.DataFrame(); self.results.index.name = 'Scenario'
         self.scenario_values = dict()
         self.prefix = prefix
 
@@ -44,3 +44,9 @@ class Scenario_runner(object):
                 scenario=Scenario(scenario_to_run),
                 geodata=pd.read_csv('processed_data/processed_data.csv'))
             model.run()
+
+            # Store results
+            self.results[index] = model.summary_results['mean']
+
+        # Save results
+        self.results.to_csv(f'./output/scenario_results_{self.prefix}.csv')
