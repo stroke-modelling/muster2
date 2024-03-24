@@ -52,6 +52,9 @@ class Scenario(object):
         self.process_time_transfer_arrival_to_puncture = 45
         self.process_time_msu_arrival_to_puncture = 25
 
+        # Save options
+        self.save_lsoa_results = False
+
         # Overwrite default values (can take named arguments or a dictionary)
         for dictionary in args:
             for key in dictionary:

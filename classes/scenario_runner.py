@@ -4,6 +4,7 @@ Class to run multiple scenarios
 
 import itertools
 import pandas as pd
+import time
 
 from classes.model import Model
 from classes.scenario import Scenario
@@ -24,6 +25,8 @@ class Scenario_runner(object):
     def run(self):
         """Run through scenarios"""
 
+        time_start = time.time()
+
         # Generate all scenarios:
         all_scenarios_tuples = [
             x for x in itertools.product(*self.scenarios.values())]
@@ -38,6 +41,14 @@ class Scenario_runner(object):
 
         # Run all scenarios
         for index, scenario_to_run in enumerate(all_scenarios_dicts):
+            # Estimate time remaining (minutes)
+            time_elapsed = time.time() - time_start
+            time_per_scenario = time_elapsed / (index + 1)
+            time_remaining = time_per_scenario * (len(all_scenarios_dicts) - index)
+            
+            # Show progress (overwrites previous line)
+            print(f'Running scenario {index+1}/{len(all_scenarios_dicts)}. Time remaining: {time_remaining/60:.2f} minutes', end='\r')
+
             scenario_to_run['name'] = f'{self.prefix}_{index}'
             # Set up model
             model = Model(
