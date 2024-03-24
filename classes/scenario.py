@@ -44,7 +44,7 @@ class Scenario(object):
         self.process_msu_dispatch = 10
         self.process_msu_thrombolysis = 20
         self.process_msu_post_thrombolysis = 15
-        self.process_msu_on_scene_thrombolysis = 30
+        self.process_msu_on_scene_post_thrombolysis = 15
         self.process_msu_on_scene_no_thrombolysis = 30
         self.process_time_arrival_to_needle = 45
         self.process_time_arrival_to_puncture = 45

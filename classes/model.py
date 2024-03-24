@@ -261,14 +261,16 @@ class Model(object):
             self.scenario.process_time_call_ambulance +
             self.scenario.process_msu_dispatch +
             self.full_results['nearest_msu_time'] +
-            self.scenario.process_msu_on_scene_thrombolysis +
+            self.scenario.process_msu_thrombolysis +
+            self.scenario.process_msu_on_scene_post_thrombolysis +
             self.full_results['nearest_mt_time'] +
             self.scenario.process_time_msu_arrival_to_puncture)
 
         self.full_results['msu_occupied_treatment'] = (
             self.scenario.process_msu_dispatch +
             self.full_results['nearest_msu_time'] +
-            self.scenario.process_msu_on_scene_thrombolysis +
+            self.scenario.process_msu_thrombolysis +
+            self.scenario.process_msu_on_scene_post_thrombolysis +
             self.full_results['nearest_mt_time'])
 
         self.full_results['msu_occupied_no_treatment'] = (
@@ -342,8 +344,6 @@ class Model(object):
     def save_results(self):
         """Save results to output folder"""
 
-
-        self.summary_results.to_csv(f'./output/summary_results_scen_{self.scenario.name}.csv')
-
         if self.scenario.save_lsoa_results:
             self.full_results.to_csv(f'./output/lsoa_results_scen_{self.scenario.name}.csv')
+            self.summary_results.to_csv(f'./output/summary_results_scen_{self.scenario.name}.csv')

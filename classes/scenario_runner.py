@@ -60,4 +60,5 @@ class Scenario_runner(object):
             self.results[index] = model.summary_results['mean']
 
         # Save results
+        self.results = self.results.T
         self.results.to_csv(f'./output/scenario_results_{self.prefix}.csv')
