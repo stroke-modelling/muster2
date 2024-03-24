@@ -59,6 +59,9 @@ class Scenario_runner(object):
             # Store results
             self.results[index] = model.summary_results['mean']
 
+            # Delete model to free up memory
+            del model
+
         # Save results
         self.results = self.results.T
         self.results.to_csv(f'./output/scenario_results_{self.prefix}.csv')
