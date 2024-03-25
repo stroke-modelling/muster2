@@ -46,3 +46,17 @@ flowchart LR
     G --> H[Outcome]
     F --> H
 ```
+
+
+### Mobile Stroke Unit (MSU)
+
+```mermaid
+flowchart LR
+    A[Stroke\nonset] --> |Delay| B(Call 999)
+    B --> |Delay| C(MSU dispatch\n+ travel)
+    C --> D(MSU\non-scene)
+    D --> E(On-scene IVT)
+    E --> G |Travel| (MT Unit)
+    G --> H[Outcome]
+    F --> H
+```
