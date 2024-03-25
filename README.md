@@ -29,7 +29,6 @@ flowchart LR
     D --> E{Use closest\n MT unit}
     E --> |Travel| G(IVT/MT Unit)
     G --> H[Outcome]
-    F --> H
 ```
 
 ### Pre-hopsital diagnosis
@@ -58,5 +57,4 @@ flowchart LR
     D --> E(On-scene IVT)
     E --> |Travel| G(MT Unit)
     G --> H[Outcome]
-    F --> H
 ```
