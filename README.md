@@ -56,7 +56,7 @@ flowchart LR
     B --> |Delay| C(MSU dispatch\n+ travel)
     C --> D(MSU\non-scene)
     D --> E(On-scene IVT)
-    E --> G |Travel| (MT Unit)
+    E --> |Travel| G(MT Unit)
     G --> H[Outcome]
     F --> H
 ```
