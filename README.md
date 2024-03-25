@@ -31,7 +31,7 @@ flowchart LR
     G --> H[Outcome]
 ```
 
-### Pre-hopsital diagnosis
+### Pre-hospital diagnosis
 
 ```mermaid
 flowchart LR
