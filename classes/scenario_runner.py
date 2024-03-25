@@ -63,5 +63,5 @@ class Scenario_runner(object):
             del model
 
         # Save results
-        self.results = self.results.T
+        self.results = self.results.T.round(5)
         self.results.to_csv(f'./output/scenario_results_{self.prefix}.csv')

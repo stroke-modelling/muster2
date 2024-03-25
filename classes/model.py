@@ -34,6 +34,10 @@ class Model(object):
         # Geodata
         self.geodata = geodata
 
+        if self.scenario.limit_to_england:
+            mask = self.geodata['England'] == 1
+            self.geodata = self.geodata[mask]
+
     def run(self):
         """
         Run the model.
@@ -93,6 +97,11 @@ class Model(object):
             continuous_outcome.mrs_dists_input.loc['pre_stroke_nlvo']['mRS<=2']
         self.full_results['nlvo_no_treatment_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_utility_not_treated']
+        self.full_results['lvo_no_treatment_mrs_0-2'] = \
+            continuous_outcome.mrs_dists_input.loc['pre_stroke_lvo']['mRS<=2']
+        self.full_results['lvo_no_treatment_utility'] = \
+            outcomes_by_stroke_type['lvo_ivt_utility_not_treated']
+
         # Outcome with treatment
         outcome_inputs_df['ivt_chosen_bool'] = 1
         continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
@@ -104,7 +113,7 @@ class Model(object):
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
         self.full_results['nlvo_drip_ship_ivt_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_post_stroke']
-        self.full_results['nlvo_drip_ship_ivt_utilility_shift'] = \
+        self.full_results['nlvo_drip_ship_ivt_utility_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_shift']
 
         # Add clinical benefit for LVO outcome (stroke type = 2)
@@ -199,7 +208,7 @@ class Model(object):
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
         self.full_results['nlvo_mothership_ivt_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_post_stroke']
-        self.full_results['nlvo_mothership_ivt_utilility_shift'] = \
+        self.full_results['nlvo_mothership_ivt_utility_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_shift']
 
         # Add clinical benefit for LVO outcome (stroke type = 2)
@@ -297,7 +306,7 @@ class Model(object):
             outcomes_by_stroke_type['nlvo_ivt_each_patient_mrs_shift']        
         self.full_results['nlvo_msu_ivt_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_post_stroke']
-        self.full_results['nlvo_msu_ivt_utilility_shift'] = \
+        self.full_results['nlvo_msu_ivt_utility_shift'] = \
             outcomes_by_stroke_type['nlvo_ivt_each_patient_utility_shift']
 
         # Add clinical benefit for LVO outcome (stroke type = 2)
