@@ -187,7 +187,7 @@ class Model(object):
             self.scenario.process_time_ambulance_response +
             self.scenario.process_ambulance_on_scene_duration +
             self.full_results['nearest_mt_time'] +
-            self.scenario.process_time_arrival_to_needle)
+            self.scenario.process_time_arrival_to_puncture)
         
         # Add clinical benefit for nLVO outcome (stroke type = 1)
         # Set up input table for stroke outcome package
