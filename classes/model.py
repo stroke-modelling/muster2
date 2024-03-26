@@ -44,7 +44,7 @@ class Model(object):
         """
 
         # set up table and add results
-        self.full_results = self.geodata.copy(deep=True)        
+        self.full_results = self.geodata.copy(deep=True)
 
         self.add_drip_ship()
         self.add_mothership()
