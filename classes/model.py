@@ -94,11 +94,11 @@ class Model(object):
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
             continuous_outcome.calculate_outcomes())
         self.full_results['nlvo_no_treatment_mrs_0-2'] = \
-            continuous_outcome.mrs_dists_input.loc['pre_stroke_nlvo']['mRS<=2']
+            continuous_outcome.mrs_distribution_probs['no_treatment_nlvo'][2]
         self.full_results['nlvo_no_treatment_utility'] = \
             outcomes_by_stroke_type['nlvo_ivt_utility_not_treated']
         self.full_results['lvo_no_treatment_mrs_0-2'] = \
-            continuous_outcome.mrs_dists_input.loc['pre_stroke_lvo']['mRS<=2']
+            continuous_outcome.mrs_distribution_probs['no_treatment_lvo'][2]
         self.full_results['lvo_no_treatment_utility'] = \
             outcomes_by_stroke_type['lvo_ivt_utility_not_treated']
 
@@ -124,14 +124,6 @@ class Model(object):
         outcome_inputs_df['ivt_chosen_bool'] = 0
         outcome_inputs_df['onset_to_puncture_mins'] = self.full_results['drip_ship_mt_time']
         outcome_inputs_df['mt_chosen_bool'] = 0
-        # Outcome without treatment
-        continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
-        patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
-            continuous_outcome.calculate_outcomes())
-        self.full_results['nlvo_no_treatment_mrs_0-2'] = \
-            continuous_outcome.mrs_dists_input.loc['pre_stroke_lvo']['mRS<=2']
-        self.full_results['nlvo_no_treatment_utility'] = \
-            outcomes_by_stroke_type['nlvo_ivt_utility_not_treated']
         # Outcome with treatment (IVT then IVT+MT)
         outcome_inputs_df['ivt_chosen_bool'] = 1
         outcome_inputs_df['mt_chosen_bool'] = 1
