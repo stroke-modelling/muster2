@@ -10,7 +10,7 @@ class Geoprocessing(object):
     Processing of raw geographic data for model.
     """
 
-    def __init__(self):
+    def __init__(self, limit_to_england=False):
         """
         Initialise geographic class.
 
@@ -72,6 +72,8 @@ class Geoprocessing(object):
             Save combined data
                 
         """
+
+        self.limit_to_england = limit_to_england
 
     def run(self):
         """
@@ -168,17 +170,32 @@ class Geoprocessing(object):
         """
         self.hospitals = pd.read_csv(
             './data/stroke_hospitals.csv', index_col='Postcode')
+        
+        if self.limit_to_england:
+            self.hospitals = self.hospitals[self.hospitals['Country'] == 'England']
+
+        used_hospitals = self.hospitals.index.tolist()
 
         self.admissions = pd.read_csv(
             './data/admissions_2017-2019.csv', index_col='area')
         self.admissions.sort_index(inplace=True)
 
+        if self.limit_to_england:
+            self.admissions = self.admissions[self.admissions['England'] == 1]
+
+        used_lsoas = self.admissions.index.tolist()
+
         self.inter_hospital_time = pd.read_csv(
             './data/inter_hospital_time_calibrated.csv', index_col='from_postcode')
 
+        
         self.lsoa_travel_time = pd.read_csv(
             './data/lsoa_travel_time_matrix_calibrated.csv', index_col='LSOA')
-        self.lsoa_travel_time.sort_index(inplace=True)
+        
+        
+        # limit to used LSOAs and hospitals
+        self.lsoa_travel_time = self.lsoa_travel_time.loc[used_lsoas]
+
 
     def save_processed_data(self):
         """
