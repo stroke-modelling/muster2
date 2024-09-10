@@ -19,5 +19,5 @@ dependencies:
     - mapclassify
     - simpy==4.0
     - shap
-    - stroke-outcome
+    - stroke-outcome==0.1.7
     - xgboost
