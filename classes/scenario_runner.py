@@ -47,7 +47,7 @@ class Scenario_runner(object):
             time_remaining = time_per_scenario * (len(all_scenarios_dicts) - index)
             
             # Show progress (overwrites previous line)
-            print(f'Running scenario {index+1}/{len(all_scenarios_dicts)}. Time remaining: {time_remaining/60:.2f} minutes', end='\r')
+            print(f'Running scenario {index+1}/{len(all_scenarios_dicts)}. Time remaining: {time_remaining/60:.0f} minutes', end='\r')
 
             scenario_to_run['name'] = f'{self.prefix}_{index}'
             # Set up model
