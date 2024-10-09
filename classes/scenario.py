@@ -48,9 +48,7 @@ class Scenario(object):
         self.process_msu_on_scene_post_thrombolysis = 15
         self.process_msu_on_scene_no_thrombolysis = 30
         self.process_time_arrival_to_needle = 45
-        self.process_time_arrival_to_puncture = 45
         self.transfer_time_delay = 60
-        self.process_time_transfer_arrival_to_puncture = 45
         self.process_time_msu_arrival_to_puncture = 25
 
         # Save options

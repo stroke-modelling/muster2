@@ -77,9 +77,9 @@ class Model(object):
             self.scenario.process_time_ambulance_response +
             self.scenario.process_ambulance_on_scene_duration +
             self.full_results['nearest_ivt_time'] +
-            self.scenario. transfer_time_delay +
+            self.scenario.transfer_time_delay +
             self.full_results['transfer_time'] +
-            self.scenario.process_time_transfer_arrival_to_puncture)
+            self.scenario.process_time_arrival_to_puncture)
      
         # Add clinical benefit for nLVO outcome (stroke type = 1)
         # Set up input table for stroke outcome package
@@ -89,6 +89,7 @@ class Model(object):
         outcome_inputs_df['ivt_chosen_bool'] = 0
         outcome_inputs_df['onset_to_puncture_mins'] = 999999
         outcome_inputs_df['mt_chosen_bool'] = 0
+        
         # Outcome without treatment
         continuous_outcome.assign_patients_to_trial(outcome_inputs_df)
         patient_data_dict, outcomes_by_stroke_type, full_cohort_outcomes = (
