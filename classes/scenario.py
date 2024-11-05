@@ -42,14 +42,14 @@ class Scenario(object):
         self.process_time_call_ambulance = 60
         self.process_time_ambulance_response = 20
         self.process_ambulance_on_scene_duration = 30
-        self.process_msu_dispatch = 10
-        self.process_msu_thrombolysis = 20
-        self.process_msu_post_thrombolysis = 15
-        self.process_msu_on_scene_post_thrombolysis = 15
+        self.process_msu_dispatch = 15
+        self.process_msu_thrombolysis = 30
+        self.process_msu_on_scene_post_thrombolysis = 5
         self.process_msu_on_scene_no_thrombolysis = 30
         self.process_time_arrival_to_needle = 45
         self.transfer_time_delay = 60
-        self.process_time_msu_arrival_to_puncture = 25
+        self.process_time_arrival_to_puncture = 90
+        self.process_time_msu_arrival_to_puncture = 60
 
         # Save options
         self.save_lsoa_results = False
