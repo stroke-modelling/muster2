@@ -202,5 +202,6 @@ class Geoprocessing(object):
         Save combined data
         """
 
+        # Reindex combined data
         self.combined_data.to_csv(
             './processed_data/processed_data.csv', index_label='LSOA')

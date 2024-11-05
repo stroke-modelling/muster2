@@ -37,6 +37,8 @@ class Model(object):
         if self.scenario.limit_to_england:
             mask = self.geodata['England'] == 1
             self.geodata = self.geodata[mask]
+            # Reindex self.geodata
+            self.geodata.reset_index(drop=True, inplace=True)
 
     def run(self):
         """
