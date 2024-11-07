@@ -1,0 +1,22 @@
+Stroke onset to ambulance call: 0, 60, 120, 180
+
+Call to ambulance arrival: 15, 30, 45
+Ambulance on-scene duration: 20, 30, 40
+Travel time to closest unit: depends on location
+Hospital arrival to IVT: 30, 45
+Transfer travel time for MT (if required): depends on location
+Net delay in MT when transferred (in addition to transfer time): 30, 60, 90
+Hospital arrival to MT: 60, 80, 120
+
+Time from call to MSU dispatch: 0, 15, 30, 45
+MSU travel to scene: depends on location
+MSU arrival to IVT: 15, 30, 45
+MSU on-scene post IVT: 5, 15
+Travel time to closest MT unit: depends on location
+Hospital arrival to MT: 30, 60, 90
+
+
+
+
+
+
